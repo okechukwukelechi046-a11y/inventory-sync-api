@@ -1,0 +1,26 @@
+@Schema({ timestamps: true })
+export class StockReservation {
+  @Prop({ required: true, index: true })
+  productId: string;
+
+  @Prop({ required: true, index: true })
+  warehouseId: string;
+
+  @Prop({ required: true, min: 1 })
+  quantity: number;
+
+  @Prop({ required: true })
+  expiresAt: Date;
+
+  @Prop({
+    default: 'ACTIVE',
+    enum: ['ACTIVE', 'CONFIRMED', 'CANCELLED', 'EXPIRED'],
+  })
+  status: string;
+
+  @Prop()
+  orderId?: string;
+
+  @Prop()
+  metadata?: Record<string, any>;
+}
