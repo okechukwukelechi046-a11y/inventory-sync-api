@@ -1,0 +1,67 @@
+Once running, visit http://localhost:3000/api-docs for interactive API documentation.
+
+Key Endpoints
+Inventory Management
+
+GET    /inventory/stock/:productId     Get current stock level
+POST   /inventory/stock                Update stock level
+POST   /inventory/reserve              Reserve stock for order
+DELETE /inventory/reserve/:id          Cancel reservation
+GET    /inventory/items                List inventory items
+
+Product Management
+
+GET    /products                      List all products
+POST   /products                      Create new product
+GET    /products/:id                  Get product details
+PUT    /products/:id                  Update product
+DELETE /products/:id                  Delete product
+
+Warehouse Management
+
+GET    /warehouses                    List warehouses
+POST   /warehouses                    Create warehouse
+GET    /warehouses/:id/stock          Get warehouse stock levels
+
+Authentication
+The API supports two authentication methods:
+
+JWT Tokens - For user authentication:
+
+Authorization: Bearer <jwt-token>
+
+API Keys - For service-to-service communication:
+
+X-API-Key: <api-key>
+
+Testing
+
+# Unit tests
+npm test
+
+# E2E tests
+npm run test:e2e
+
+# Test coverage
+npm run test:cov
+
+Deployment
+
+Kubernetes
+# Apply Kubernetes manifests
+kubectl apply -f k8s/namespace.yaml
+kubectl apply -f k8s/configmap.yaml
+kubectl apply -f k8s/secrets.yaml
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+kubectl apply -f k8s/ingress.yaml
+
+
+AWS ECS
+
+# Build and push image
+docker build -t your-registry/inventory-api:latest .
+docker push your-registry/inventory-api:latest
+
+# Deploy with ECS CLI
+ecs-cli compose --project-name inventory-api up
