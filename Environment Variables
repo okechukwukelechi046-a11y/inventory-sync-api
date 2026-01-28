@@ -1,0 +1,27 @@
+# Application
+NODE_ENV=development
+PORT=3000
+API_PREFIX=/api/v1
+
+# Database
+MONGODB_URI=mongodb://localhost:27017/inventory
+
+# Redis
+REDIS_URL=redis://localhost:6379
+REDIS_PASSWORD=
+
+# RabbitMQ
+RABBITMQ_URL=amqp://localhost:5672
+RABBITMQ_USER=guest
+RABBITMQ_PASSWORD=guest
+
+# JWT
+JWT_SECRET=your-super-secret-jwt-key-32-chars-minimum
+JWT_EXPIRES_IN=15m
+
+# API Keys
+API_KEYS=key1:secret1,key2:secret2
+
+# Rate Limiting
+RATE_LIMIT_WINDOW=900000  # 15 minutes
+RATE_LIMIT_MAX=100        # requests per window
