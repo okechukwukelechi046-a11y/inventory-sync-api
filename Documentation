@@ -1,0 +1,21 @@
+A. Project Overview
+Problem Statement: E-commerce businesses struggle with inventory accuracy across multiple sales channels and warehouses, leading to overselling and stock discrepancies.
+
+Real-World Use Case: A retailer selling on Amazon, eBay, and their own website needs a centralized inventory system that syncs stock levels in real-time and prevents overselling.
+
+Target Users: E-commerce businesses, inventory managers, warehouse operators, and developers integrating inventory systems.
+
+B. Tech Stack
+Language: TypeScript
+
+Framework: NestJS
+
+Database: MongoDB with Mongoose
+
+Cache: Redis
+
+Message Queue: RabbitMQ
+
+API Documentation: Swagger/OpenAPI 3.0
+
+Tools: Docker, Jest, Winston, Prometheus, Grafana
