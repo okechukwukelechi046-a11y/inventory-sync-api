@@ -1,0 +1,27 @@
+# 1. Clone repository
+git clone https://github.com/okechukwukelechi046-a11y/inventory-sync-api.git
+cd inventory-sync-api
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up environment
+cp .env.example .env
+# Edit .env with your configuration
+
+# 4. Start dependencies with Docker
+docker-compose up -d mongodb redis rabbitmq
+
+# 5. Run migrations
+npm run migration:run
+
+# 6. Start development server
+npm run start:dev
+
+# 7. Run tests
+npm test
+npm run test:e2e
+
+# 8. Build for production
+npm run build
+npm run start:prod
