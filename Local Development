@@ -1,0 +1,14 @@
+# Install dependencies
+npm install
+
+# Set up environment
+cp .env.example .env
+
+# Start MongoDB, Redis, and RabbitMQ
+docker-compose up -d
+
+# Run database migrations
+npm run migration:run
+
+# Start development server
+npm run start:dev
