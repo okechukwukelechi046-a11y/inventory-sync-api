@@ -1,0 +1,61 @@
+High-Level Architecture:
+
+API Gateway → Inventory Service → MongoDB
+      ↓              ↓
+   Redis Cache    RabbitMQ → Stock Update Workers
+      ↓
+   Monitoring (Prometheus + Grafana)
+
+Component Interaction:
+
+HTTP requests hit API Gateway
+
+Auth middleware validates JWT tokens
+
+Controllers handle routing
+
+Services implement business logic with caching
+
+Stock updates publish to RabbitMQ for async processing
+
+MongoDB for persistence, Redis for caching
+
+Folder Structure:
+
+inventory-sync-api/
+├── src/
+│   ├── modules/
+│   │   ├── auth/
+│   │   ├── inventory/
+│   │   ├── products/
+│   │   ├── warehouses/
+│   │   └── webhooks/
+│   ├── common/
+│   │   ├── decorators/
+│   │   ├── filters/
+│   │   ├── guards/
+│   │   ├── interceptors/
+│   │   └── middleware/
+│   ├── config/
+│   ├── queue/
+│   └── utils/
+├── tests/
+├── docker/
+└── docs/
+
+Core Features
+JWT Authentication & API Key Management
+
+Real-time Stock Synchronization across channels
+
+Reservation System to prevent overselling
+
+Webhook Support for external integrations
+
+Distributed Caching with Redis
+
+Event-driven Architecture with RabbitMQ
+
+Rate Limiting and request throttling
+
+Comprehensive Logging and monitoring
